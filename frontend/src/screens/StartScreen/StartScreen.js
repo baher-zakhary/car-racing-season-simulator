@@ -1,18 +1,20 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import raceTypesEnum from "../../models/raceTypesEnum";
 import Form from "react-bootstrap/Form";
-import {Button} from 'react-bootstrap';
-import './StartScreen.css';
+import { Button } from "react-bootstrap";
+import "./StartScreen.css";
+import { useNavigate } from "react-router-dom";
+import { BusinessUtilsContext } from "../../App";
 
 const StartScreen = () => {
-  const [raceType, setRaceType] = useState(raceTypesEnum.NASCAR);
+  const navigate = useNavigate();
+  const [raceType, setRaceType] = useState(localStorage.getItem('raceType') ? localStorage.getItem('raceType') : raceTypesEnum.NASCAR);
+  const BusinessUtils = useContext(BusinessUtilsContext);
 
   const onRaceTypeChange = (selectedRaceType) => {
     setRaceType(selectedRaceType);
-    Object.values(raceTypesEnum).forEach((raceType) => {
-      document.body.classList.remove(raceType);
-    });
-    document.body.classList.add(selectedRaceType);
+    BusinessUtils.setRaceTypeBackground(selectedRaceType);
+    localStorage.setItem("raceType", selectedRaceType);
   };
 
   useEffect(() => {
@@ -21,8 +23,10 @@ const StartScreen = () => {
 
   const onSimulate = (e) => {
     e.preventDefault();
-    console.log(e)
-  }
+    navigate(`/results/${raceType}`);
+    BusinessUtils.setRaceTypeBackground(raceType);
+    localStorage.setItem("raceType", raceType);
+  };
 
   return (
     <div className="container d-flex align-content-center justify-content-center">
@@ -36,7 +40,9 @@ const StartScreen = () => {
           >
             <option disabled>Select Race Type</option>
             {Object.entries(raceTypesEnum).map(([key, value], index) => (
-              <option key={value} value={value}>{key}</option>
+              <option key={value} value={value}>
+                {key}
+              </option>
             ))}
           </Form.Select>
           <Button variant="danger" type="submit" className="mt-3">

@@ -1,0 +1,9 @@
+.container {
+  min-height: 100%;
+}
+
+div.start-form {
+  width: 500px;
+  padding: 50px;
+  background: rgba(0, 0, 0, 0.5);
+}

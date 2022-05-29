@@ -1,5 +1,5 @@
 {
-  "name": "car-racing-season-simulator",
+  "name": "car-racing-season-simulator-server",
   "version": "1.0.0",
   "description": "Car racing season simulator App",
   "main": "server.js",

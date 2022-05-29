@@ -9,5 +9,6 @@ export const getStandings = asyncHandler(async (req, res) => {
     const raceType = req.params.raceType;
     const drivers = RaceDriversFactory(raceType);
     const standings = simulateSeason(drivers);
+    standings.sort((standingA, standingB) => standingB.totalPoints - standingA.totalPoints);
     res.json(standings)
 })

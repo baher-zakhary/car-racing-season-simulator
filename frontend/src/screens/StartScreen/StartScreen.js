@@ -29,7 +29,7 @@ const StartScreen = () => {
   };
 
   return (
-    <div className="container d-flex align-content-center justify-content-center">
+    <div className="container d-flex align-content-center">
       <div className="start-form my-auto">
         <h1>Select Race Type:</h1>
         <Form className="d-flex flex-column" onSubmit={onSimulate}>

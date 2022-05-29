@@ -12,7 +12,13 @@ app.get('/', (req, res) => {
 
 app.use('/v1/api/', standingRoutes)
 
-app.use(express.static(path.join(__dirname, '../build')))
+if (process.env.NODE_ENV === "production") {
+    console.log("PRODUCTION MODE ACTIVE");
+    app.use(express.static("./frontend/build"));
+    app.get('*', (req, res) => {
+      res.sendFile(path.resolve(__dirname, './frontend/build','index.html'));
+    })
+}
 
 const PORT = process.env.PORT || 5000
 

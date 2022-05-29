@@ -12,6 +12,8 @@ app.get('/', (req, res) => {
 
 app.use('/v1/api/', standingRoutes)
 
+app.use(express.static(path.join(__dirname, '../build')))
+
 const PORT = process.env.PORT || 5000
 
 app.listen(

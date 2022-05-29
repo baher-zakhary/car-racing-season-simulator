@@ -45,7 +45,7 @@ const ResultsScreen = () => {
                   <td>{index + 1}</td>
                   <td>{driver.name}</td>
                   <td>{driver.car.manufacturer} {driver.car.model ? driver.car.model : null}</td>
-                  <td>{driver.totalPoints}</td>
+                  <td>{Math.round(driver.totalPoints * 100) / 100}</td>
                 </tr>
               ))
               

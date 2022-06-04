@@ -1,6 +1,18 @@
 # car-racing-season-simulator
 Car Racing Season Simulator (Standings and Results) using MERN stack
 
+# Final result
+
+![image](./frontend/public/screenshots/screenshot1.jpg)
+
+![image](./frontend/public/screenshots/screenshot2.jpg)
+
+![image](./frontend/public/screenshots/screenshot3.jpg)
+
+![image](./frontend/public/screenshots/screenshot4.jpg)
+
+# Task description
+
 This program will simulate the results and standings of a car racing season. You can determine the kind of car racing, NASCAR, F1, GT etc. You will need Drivers with some skill attributes. You will need cars from various manufacturers. The cars would have various horse power and attributes. The season will have a qualifying event to eliminate some drivers. The season will have many races with results. The season will have a final championship race.
 
 Functional Requirements:
